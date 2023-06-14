@@ -1,26 +1,40 @@
-import os,csv
+import os,csv,re
 import pandas as pd
 
 
 
 def checkpath():
-    listpath=[]
     cwd = os.getcwd()
-    print(cwd)
     cwdstr=str(cwd)
-    cwdstr.replace("\\",'\\\\')
-    print(cwdstr)
+    a=cwdstr.encode()
+    r=re.escape(a)
+    b=r.decode()
+    return b
+    #print(type(b))
+
+def modify_path():
+    newpath=input("nameofpath")
+    actualpath=checkpath()
+    new_modifiedpath=actualpath+newpath
+    return new_modifiedpath
+
+    
+    
            
-    print(listpath)
-def checkpassword():
+    
+def savepassword():
     user_password=input("Enter Password")
-    hellofile=open('C:\\Users\\USER\\Desktop\\site\\Python-Projects\\School Admission system\\clssteacherPerf\\class2.csv','a',newline='\n')
+    passwordpath='\\password.csv'
+    actualpath=checkpath()
+    q=actualpath+passwordpath
+    
+    hellofile=open(q,'a',newline='\n')
     csvframe=csv.writer(hellofile)
-    csvframe.writerow(t)
+    csvframe.writerow(user_name,q)
         
 
 def login_page(email):
     print("   ")
 
 checkpath()
- 
+modify_path()
