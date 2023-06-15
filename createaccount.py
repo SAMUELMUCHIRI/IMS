@@ -12,15 +12,21 @@ def login():
         [sg.Button('Ok'), sg.Button('Cancel'),sg.Button('Create Account')]
     ]
 
-    window = sg.Window("Intern Magement System Login", layout )
+    window = sg.Window("Intern Magement System Login                                            ", layout )
    
 
     while True:
         event, values = window.read()
         if event == "Cancel" or event == sg.WIN_CLOSED:
+            if (event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT or event == 'Exit') and sg.popup_yes_no('Do you really want to exit?') == 'Yes':
+            
+                break
             break
+        
         elif event == 'Minimize':
             window.minimize()
+        elif event == 'Create Account':
+            sg.popup("Welcome to New account creation Page!")
         else:
             if event == "Ok":
                 if values['-usrnm-'] == 'username' and values['-pwd-'] == 'password':
