@@ -2,9 +2,11 @@ public class Test {
 
 	public static void main(String[] args){
 
-    	for(String s : args){
-		System.out.println(s);
-    	}
+    	int cat;
+		cat=10;
+		
+		System.out.println(cat);
+    	
 	
     }
 }
